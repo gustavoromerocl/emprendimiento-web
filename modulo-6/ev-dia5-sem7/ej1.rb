@@ -3,12 +3,13 @@
 """
 1. Confeccionar un método que reciba tres enteros y los muestre ordenados de  menor a mayor. 
 """
-list = []
-for numero in (1..3)
-    puts "Ingrese el numero #{numero}: "
-    input = gets().to_i()
+number1 = rand(100)
+number2 = rand(100)
+number3 = rand(100)
 
-    list.push(input)
+def order_number(number1, number2, number3)
+    list = [number1, number2, number3]
+    return list.sort
 end
 
-puts list.sort!
+puts order_number(number1, number2, number3)
