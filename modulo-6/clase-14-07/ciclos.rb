@@ -65,7 +65,7 @@ puts nombre
 end
 puts "Cantidad de nombres dentro del arreglo: #{arreglo.length}"
 
-nfante = 1
+infante = 1
 suma_edades = 0
 puts "Ingrese cantidad de infantes a evaluar:"
 cantidad_infantes = gets().to_i()
