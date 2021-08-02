@@ -1,7 +1,7 @@
 CREATE TABLE CATEGORIA(
 	id_categoria smallint NOT NULL,
 	descripcion varchar(50) NOT NULL,
-	tipo_de_iva integer NOT NULL,
+	tipo_de_iva varchar NOT NULL,
 	CONSTRAINT pkCategoria PRIMARY KEY (id_categoria),
 	CONSTRAINT uqCategoria UNIQUE (descripcion) 
 );
