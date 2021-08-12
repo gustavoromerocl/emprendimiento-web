@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formularios</title>
+</head>
+<!--
+
+-->
+<body>
+        <H1>Mi Formulario de envío de datos</H1>
+       <form action="" method="POST">
+        <p>
+                Ingresa tu nombre completo: <input type="text" name="txtNombre" id="nombre" placeholder="Ingresa aquí tu nombre completo" >
+                <br>
+                Email:
+                <input type="email" name="correo" id=""><br>
+                Deja un mensaje: <br>
+                <textarea name="" id="" cols="30" rows="10"></textarea><br>
+                Selecciona tus intereses: <br>
+                <input type="checkbox" name="peliculas">Películas<br>
+                <input type="checkbox" name="deportes">Deportes<br>
+                <input type="checkbox" name="videojuegos">Videojuegos<br>
+                <label for="ingresos">Ingresos:</label><br>
+                <input type="radio" name="ingresos" value="1">
+                Menos de $350.000<br>
+                <input type="radio" name="ingresos" value="2">
+                Entre $350.000 y $500.000<br>
+                <input type="radio" name="ingresos" value="3">
+                Mas de $500.000<br>
+                Ciudades: 
+                <select name="ciudades">
+                        <option value="" selected>Seleccione su Ciudad</option>
+                        <option value="arica" >Arica</option>
+                        <option value="laserena">La Serena</option>
+                        <option value="santiago">Santiago</option>
+                        <option value="temuco">Temuco</option>
+                        <option value="puntaarenas">Punta Arenas</option>
+                </select><br>
+                Selecciona una categoría:<br>
+                <select multiple name="categorias[]">
+                        <option value="arte">Arte</option>
+                        <option value="tv">TV y Espectáculos</option>
+                        <option value="infantil">Infantil</option>
+                        <option value="animales">Animales</option>
+                </select>
+        </p>
+        <input type="submit" value="Enviar Datos">
+        <input type="reset" value="Limpiar Formulario">       
+       </form> 
+</body>
+</html>
