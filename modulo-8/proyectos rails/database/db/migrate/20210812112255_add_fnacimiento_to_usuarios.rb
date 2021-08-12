@@ -1,5 +1,5 @@
 class AddFnacimientoToUsuarios < ActiveRecord::Migration[6.1]
-  def change
+  def down
     add_column :usuarios, :fnacimiento, :date
   end
 end
