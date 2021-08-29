@@ -1,0 +1,21 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h1 {
+    text-align: center;
+}
+
+.edit-bottom-links {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container-show-image {
+    max-width: 200px;
+    height: auto;
+}
+
+.back-link{
+    text-align: center;
+}

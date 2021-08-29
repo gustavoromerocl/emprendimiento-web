@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container col-12 d-flex flex-column align-items-center">
+  <div class="container-show-image">
+    <%= image_tag(@product.image, class: 'img-thumbnail') if @product.image.attached? %>
+  </div>
+
+  <p>
+    <strong>Title:</strong>
+    <%= @product.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
+
+<div class="d-flex justify-content-center">
+  <%= link_to 'Editar', edit_product_path(@product) %> |
+  <%= link_to 'Volver', products_path %>
+</div>
+
+</div>
+
+

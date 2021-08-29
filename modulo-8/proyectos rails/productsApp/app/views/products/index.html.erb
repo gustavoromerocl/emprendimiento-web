@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+  <% @products.each do |product| %>
+
+  <div class="container col-12">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4 cols-sm-12">
+            <%=  image_tag(product.image, class: 'img-thumbnail rounded-start') if product.image.attached? %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= product.title %></h5>
+            <p class="card-text"><%= product.price %></p>
+            <p class="card-text"><small class="text-muted"><%= product.description %></small></p>
+            <a><%= link_to 'ver', product %></a> <a><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+<br>
+
+
