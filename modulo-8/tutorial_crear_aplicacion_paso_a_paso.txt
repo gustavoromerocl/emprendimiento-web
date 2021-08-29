@@ -1,0 +1,56 @@
+Pasos para crear una aplicación en rails y desplegarla en heroku.
+CREACIÓN DE LA APLICACIÓN
+-----------------------------------------------------------------------------------------
+1.Creamos la aplicación local. Primero debemos revisar donde
+estamos situados a nivel de carpetas antes de crear la app.
+rails new aplicacionone --database=postgresql.
+2.Estando dentro de visual studio code debo abrir la carpeta
+que contiene mi aplicacion y tiene el mismo nombre de mi 
+aplicación('aplicacionone') y abrir una nueva terminal.
+CREACIÓN DE LA BASE DE DATOS
+-----------------------------------------------------------------------------------------
+3.Ahora debo prepara todo para que se pueda crear la base de 
+datos de mi aplicación dentro del archivo ubicado en config/database.yml
+development:
+  <<: *default
+  database: aplicacionone_development #depende del nombre de su app
+  username: postgres #utilizamos el superusuario por defecto
+  #The password associated with the postgres role (username).
+  password: 123456789 #es la password que utilizaron en la instalacion de pg
+  host: localhost
+  port: 5432
+4.Ahora debemos decirle a rails que puede crear la base de datos con el
+comando rails db:create y la base de datos se crea.
+CREACIÓN DE MI MODELO (ENTIDADES DE MI BASE DE DATOS)
+-----------------------------------------------------------------------------------------
+5.Vamos a crear un modelo mediante el active:records que se convertirá en una
+tabla dentro de mi base de datos. Debo tener la consideración de nombrar
+mi modelo en singular para que después rails lo pluralice.
+Usamos el comando rails g model producto(este se llamara segun nombre de la entidad)
+Podemos agregar de forma optativa los atributos de la entidad o del modelo
+agregando el atributo y su tipo de dato (ej: descripcion:string precio:integer)
+Se sugiere si se tiene listo el modelo entidad relación crear todos los modelos.
+Si tuve algun error al crear mi modelo puedo destruirlo mediante el comando 
+rails d model producto.
+Bonus: Podemos generar un active_storage tanto para imágenes como videos para que puedan
+ser subidos(upload) desde nuestra aplicación cualquier imagen o video que esté en nuestro pc.
+6. Realizaremos la creación de la tabla productos en la base de datos ejecutando el o los archivos de migración que esten disponibles mediante el comando rails db:migrate.
+7.Si es necesario agregar un nuevo campo al modelo ya migrado podemo utilizar el siguiente comando que permitirá crear un nuevo archivo de migración y luego poder migrarlo. Este comando es: rails g migration add_nuevo_campo_to_productos.
+8.Si queremos validar aspectos de mis atributos del modelo debemos ir a app/model/producto.erb, tales como que no esten en blanco, que sean unicos, validación de correo, etc.
+----------------------------------------------------------------------------------------
+CREACIÓN DE LOS CONTROLADORES EN BASE A MI MODELO
+9.Primero verificar mis rutas mediante el comando rails routes.
+10.Generaremos el controlador del modelo pluralizando el modelo.
+rails g controller productos listar (podria colocar como opcional una vista) 
+11.Dentro del archivo config/routes.rb debemos agregar la estructura RestFull que necesitaremos para poder controlar el modelo a elegir agregando el siguiente comando: resources :productos (asociado al controlador).
+-----------------------------------------------------------------------------------------
+CREACIÓN E IMPLEMENTACIÓN DE LAS VISTAS SEGUN EL MODELO, son los archivos .html.erb
+éstos son creados dentro de app/views
+
+ 
+
+
+
+
+
+
