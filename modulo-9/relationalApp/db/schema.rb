@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_163758) do
+ActiveRecord::Schema.define(version: 2021_08_30_132303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "nombre"
@@ -29,5 +35,15 @@ ActiveRecord::Schema.define(version: 2021_08_29_163758) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cities_id", null: false
+    t.index ["cities_id"], name: "index_usuarios_on_cities_id"
+  end
+
   add_foreign_key "countries", "presidentes"
+  add_foreign_key "usuarios", "cities", column: "cities_id"
 end
