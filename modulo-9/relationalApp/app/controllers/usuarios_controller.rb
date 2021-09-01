@@ -13,16 +13,18 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+    @cursos = Curso.all
   end
 
   # GET /usuarios/1/edit
   def edit
+    @cursos = Curso.all
   end
 
   # POST /usuarios or /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
-
+    @usuario.guardar_cursos
     respond_to do |format|
       if @usuario.save
         format.html { redirect_to @usuario, notice: "Usuario was successfully created." }
@@ -36,6 +38,7 @@ class UsuariosController < ApplicationController
 
   # PATCH/PUT /usuarios/1 or /usuarios/1.json
   def update
+    @usuario.guardar_cursos
     respond_to do |format|
       if @usuario.update(usuario_params)
         format.html { redirect_to @usuario, notice: "Usuario was successfully updated." }
@@ -64,6 +67,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :apellido, :cities_id)
+      params.require(:usuario).permit(:nombre, :apellido, :cities_id, elementos_curso: [])
     end
 end

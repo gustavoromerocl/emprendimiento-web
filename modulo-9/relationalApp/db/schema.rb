@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_30_132303) do
+ActiveRecord::Schema.define(version: 2021_08_30_135652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,21 @@ ActiveRecord::Schema.define(version: 2021_08_30_132303) do
     t.index ["presidente_id"], name: "index_countries_on_presidente_id"
   end
 
+  create_table "cursos", force: :cascade do |t|
+    t.string "titulo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "has_cursos", force: :cascade do |t|
+    t.bigint "usuario_id", null: false
+    t.bigint "curso_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["curso_id"], name: "index_has_cursos_on_curso_id"
+    t.index ["usuario_id"], name: "index_has_cursos_on_usuario_id"
+  end
+
   create_table "presidentes", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
@@ -45,5 +60,7 @@ ActiveRecord::Schema.define(version: 2021_08_30_132303) do
   end
 
   add_foreign_key "countries", "presidentes"
+  add_foreign_key "has_cursos", "cursos"
+  add_foreign_key "has_cursos", "usuarios"
   add_foreign_key "usuarios", "cities", column: "cities_id"
 end

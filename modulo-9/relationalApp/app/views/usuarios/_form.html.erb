@@ -26,6 +26,18 @@
     <%= collection_select(:usuario, :cities_id, City.all.order(:nombre), :id, :nombre)%>
   </div>
 
+  <div class="field">
+    <%= form.label :elementos_curso %>
+    <div class="row">
+      <% @cursos.each do |curso| %>
+        <label class="col-6 col-sm-5">
+          <%= form.check_box :elementos_curso, {multiple: true}, curso.id, nil %>
+          <%= curso.titulo %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
