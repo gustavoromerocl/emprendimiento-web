@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  before_action :authenticate_user! #,only: [:new, :create,:edit,:update,:destroy]
   before_action :set_usuario, only: %i[ show edit update destroy ]
 
   # GET /usuarios or /usuarios.json
@@ -19,6 +20,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1/edit
   def edit
     @cursos = Curso.all
+    @usuario.guardar_cursos
   end
 
   # POST /usuarios or /usuarios.json

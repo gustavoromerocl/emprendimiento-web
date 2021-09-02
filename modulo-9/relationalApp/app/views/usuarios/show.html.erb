@@ -10,5 +10,15 @@
   <%= @usuario.apellido %>
 </p>
 
+<p>
+  <strong>Cursos seleccionados:</strong>
+  <% @usuario.cursos.each do |curso| %>
+    <span class="badge rounded-pill bg-info text-dark">
+      <%= link_to curso.titulo, curso %>
+    </span>
+  <% end %>
+
+</p>
+
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
 <%= link_to 'Back', usuarios_path %>

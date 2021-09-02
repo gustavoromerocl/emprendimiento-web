@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @curso.titulo %>
-</p>
+<div class="center-block">
+  <h1>Curso seleccionado</h1>
+  <h2><%= @curso.titulo %></h2>
+</div>
 
 <%= link_to 'Edit', edit_curso_path(@curso) %> |
 <%= link_to 'Back', cursos_path %>
